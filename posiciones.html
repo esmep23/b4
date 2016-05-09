@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>_WEB-APP4.0_</title>
+    
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="dist/css/my-app.css">
+
+  </head>
+  <body> <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>BSC DIGITAL</p>
+        <!-- Click on link with "close-panel" class will close panel -->
+        <p><a href="#" class="close-panel">Close me</a></p>
+        <p><a href="index.html" class="open-panel">NOTICIAS</a></p>
+        <p><a href="calendario.html" class="open-panel">CALENDARIO</a></p>
+        <p><a href="plantilla.html" class="open-panel">PLANTILLA</a></p>
+        <p><a href="posiciones.html" class="open-panel">POSICIONES</a></p>
+        <p><a href="descargas.html" class="open-panel">DESCARGAS</a></p>
+      </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="back">
+                            <i class="icon icon-back"></i>
+                        </a>
+                    </div>
+                    <div class="center">ESTADÍSTICAS</div>
+                    <div class="right">
+                        <a href="#" class="open-panel">
+                            <i class="icon icon-bars" ></i>
+                        </a>
+                    </div>
+                </div>
+            </div>  
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="posiciones" class="page">
+            <!-- Scrollable page content -->
+            <div class="page-content">
+
+                    <div id="tabs" >
+                        <ul class="row">
+                          <li class="col-md-4 col-xs-4 col-sm-4 text-center"><a href="#tabs-1">ETAPA 1</a></li>
+                          <li class="col-md-4 col-xs-4 col-sm-4 text-center ui-tabs-active"><a href="#tabs-2">ETAPA 2</a></li>
+                          <li class="col-md-4 col-xs-4 col-sm-4 text-center"><a href="#acumulada">ACUMULADA</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                            <ul class="tabla_posicionesEtapa1">
+                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
+                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
+                            </ul>
+                            <ul class="posicionesEtapa1"></ul>
+                        </div>
+                        <div id="tabs-2">
+                          
+                          <ul class="tabla_posicionesEtapa2">
+                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
+                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
+                            </ul>
+                            <ul class="posicionesEtapa2"></ul>
+                        </div>
+                        <div id="acumulada">
+                          <ul class="tabla_posicionesAcumulada">
+                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
+                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
+                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
+                            </ul>
+                            <ul class="posicionesAcumulada"></ul>
+                        </div>
+                        
+                    </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <!-- Toolbar links -->
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/js/framework7.min.js"></script>
+    
+    <script type="text/javascript" src="dist/js/my-app.js"></script>    
+    <script type="text/javascript" src="js/_index.js"></script>    
+
+  </body>
+</html>
