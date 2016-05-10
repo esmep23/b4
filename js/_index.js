@@ -302,7 +302,7 @@ function getNoticiaPublicada(argument) {
 
 function getPartidoProximo(argument){   
     partidoActual = argument;
-    alert(argument);
+    
     var datos ={
     'fecha': partidoActual
     }
