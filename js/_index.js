@@ -27,24 +27,24 @@ $( document ).ready(function() {
 
   // CARGO CALENDARIO //
   myApp.onPageInit('calendario', function (page) {
+    myApp.closePanel();
     getPartidoProximo(partidoActual);
-
-    
-      var mySwiperSlow = myApp.swiper('.swiper-2', {
-        pagination:'.swiper-slow .swiper-pagination',
-        speed: 300
-      });
-    
+    var mySwiperSlow = myApp.swiper('.swiper-2', {
+      pagination:'.swiper-slow .swiper-pagination',
+      speed: 300
+    });
   })
 
 
   // CARGO PLANTILLA //
   myApp.onPageInit('plantilla', function (page) {
+    myApp.closePanel();
     cargoUnidadEquipo();
   })
 
   // CARGO ESTADISTICAS //
   myApp.onPageInit('posiciones', function (page) {
+    myApp.closePanel();
     cargoCampeonato();
   })
 
@@ -173,7 +173,7 @@ function cargoNoticias_Home(){
 	    var extracto = arrayNoticias[i].contenido;
 	    extracto = extracto.substring(0, 80);
 
-	    $('#noticiasHome .list-block ul').append('<li> <a href="noticia.html" onclick="getNoticiaPublicada('+codigo+')"> <div class="item-content"> <div class="item-media"> <img src="'+rutaimagen+'img/noticias/'+anio+'/'+mes+'/'+anio+'_'+mes+'_'+dia+'_'+num_news+'_'+picture_quantity+'.jpg" /> </div> <div class="item-inner"> <div class="item-title"> '+titular+' </div> <div class="item-after"> '+dia+'-'+mes+'-'+anio+'</div> </div> </div> </a> </li> ');
+	    $('#noticiasHome ul').append('<li> <a href="noticia.html" onclick="getNoticiaPublicada('+codigo+')" class="item-link item-content"> <div class="item-media"><img src="'+rutaimagen+'img/noticias/'+anio+'/'+mes+'/'+anio+'_'+mes+'_'+dia+'_'+num_news+'_'+picture_quantity+'.jpg" width="80"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+titular+'</div> </div> <div class="item-subtitle">'+dia+'-'+mes+'-'+anio+'</div> </div> </a> </li>');
   }
 
           
@@ -211,12 +211,12 @@ function cargoNoticias_Home(){
 
 		        //$('#noticiasHome .list-block ul').append('<li class="item-content"> <div class="item-inner"> <a href="#noticia?noticia='+codigo+'" onclick="getNoticiaPublicada('+codigo+')" data-transition="slide"> <div class="col-sm-6 col-xs-6 col-md-6"> <div class="mini col-md-12 col-sm-12 col-xs-12 text-left">'+dia+'-'+mes+'-'+anio+' </div> <div class="col-sm-10 col-xs-10 col-md-10"> <div class="titulo_noticia">'+titular+' </div></div> </div> <div class="col-sm-6 col-xs-6 col-md-6"> <div class="pictureImage square-thumb" rel="shadowbox" style="background-image:url('+rutaimagen+'img/noticias/'+anio+'/'+mes+'/'+anio+'_'+mes+'_'+dia+'_'+num_news+'_'+picture_quantity+'.jpg)"></div> </div> </a> </div> </li>');
 		         
-			  	html += '<li> <a href="noticia.html" onclick="getNoticiaPublicada('+codigo+')"> <div class="item-content"> <div class="item-media"> <img src="'+rutaimagen+'img/noticias/'+anio+'/'+mes+'/'+anio+'_'+mes+'_'+dia+'_'+num_news+'_'+picture_quantity+'.jpg" /> </div> <div class="item-inner"> <div class="item-title"> '+titular+' </div> <div class="item-after"> '+dia+'-'+mes+'-'+anio+'</div> </div> </div> </a> </li>';
+			  	html += '<li> <a href="noticia.html" onclick="getNoticiaPublicada('+codigo+')" class="item-link item-content"> <div class="item-media"><img src="'+rutaimagen+'img/noticias/'+anio+'/'+mes+'/'+anio+'_'+mes+'_'+dia+'_'+num_news+'_'+picture_quantity+'.jpg" width="80"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+titular+'</div> </div> <div class="item-subtitle">'+dia+'-'+mes+'-'+anio+'</div> </div> </a> </li>';
 
 
 			}
 			 
-			$('#noticiasHome .list-block ul').append(html);
+			$('#noticiasHome ul').append(html);
 			 
 			lastIndex = $$('#noticiasHome .list-block li').length;
 		}, 1000);
@@ -322,7 +322,7 @@ function getPartidoProximo(argument){
             equipo2 = value.equipo2;
             estadio = value.estadio;
             
-            $('#cancha-vs').append('<div class="swiper-slide"><div> <div> <h4>Campeonato Ecuatoriano de Fútbol</h4> <p>Fecha: '+ fecha +' |  Hora: '+ hora +'</p> </div> <div>'+equipo1+'</div> <div></div> <div>'+equipo2+'</div> <div> <img src="'+rutaimagen+'/img/widget/'+equipo1+'.png" /> </div> <div> <span>VS.</span> </div> <div> <img src="'+rutaimagen+'/img/widget/'+equipo2+'.png" /> </div> <div> <h5>Estadio <strong> '+estadio+'</strong></h5> </div> </div></div>');
+            $('#cancha-vs').append('<div class="swiper-slide"> <div class="row center"> <div class="col-100"> <h4>Campeonato Ecuatoriano de Fútbol</h4> </div> <div class="col-100"> <p>Fecha: '+ fecha +' |  Hora: '+ hora +'</p> </div> </div> <div class="row center"> <div class="col-50"> <p>'+equipo1+'</p> </div> <div class="col-50"> <p>'+equipo2+'</p> </div> </div> <div class="row center"> <div class="col-45"> <img src="'+rutaimagen+'/img/widget/'+equipo1+'.png" /> </div> <div class="col-10"> <p> VS </p> </div> <div class="col-45"> <img src="'+rutaimagen+'/img/widget/'+equipo2+'.png" /> </div> </div> <div class="row center"> <div class="col-100"> <h5>Estadio <strong> '+estadio+'</strong></h5> </div> </div> </div>');
           });
         }              
       },
@@ -360,7 +360,7 @@ function cargoUnidadEquipo(){
             charge = value.charge;
             type = value.type;
             state = value.state;
-            $('#cargo-unidad-equipo').append('<li class="jugador"> <div class="numberJugador col-md-5 col-xs-5 col-sm-5 text-right"> <span>'+number+'</span> </div> <div class="datos_delJugador col-md-7 col-xs-7 col-sm-7 text-left"> <strong>'+name+'</strong> <p>'+lastname+'</p> <span><strong>'+charge+'</strong> /</span> </div> <div class="imagenMenor col-md-12 col-xs-12 col-sm-12"></div> </li>');
+            $('#cargo-unidad-equipo').append('<li class="item-content"> <div class="item-media"><i class="icon icon-f7"></i></div> <div class="item-inner"> <div class="item-title"><p><strong>'+name+'</strong> '+lastname+'<br/><span><strong>'+charge+'</strong> /</span></p></div> <div class="item-after"><span class="badge">'+number+'</span></div> </div> </li>');
           });
         }              
       },
@@ -400,18 +400,18 @@ function cargoCampeonato(){
               arrayPuntajesPJ.push(pj);
               arrayPuntajesGD.push(gd);
               arrayPuntajesPTS.push(pts);
-              $('.posicionesEtapa1').append('<li class="col-md-3 col-xs-3 col-sm-3 text-right"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" /></li><li class="col-md-2 col-xs-2 col-sm-2 text-left">  '+equipo+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+pj+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+gd+'</li> <li class="col-md-3 col-xs-3 col-sm-3 text-center"> '+pts+'</li><li class="rayaSepara col-md-12 col-xs-12 col-sm-12"></li>');
+              $('.posicionesEtapa1').append('<div class="col-100"><div class="row"><div class="col-auto"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" />  '+equipo+'</div> <div class="col-auto"> '+pj+'</div> <div class="col-auto"> '+gd+'</div> <div class="col-auto"> '+pts+'</div></div></div>');
               console.log(arrayPuntajesPJ);
 
             }
             if(fase == 'Serie A Fase 2'){
                 var h1var = arrayEquipos.indexOf(equipo);
-                $('.posicionesEtapa2').append('<li class="col-md-3 col-xs-3 col-sm-3 text-right"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" /></li><li class="col-md-2 col-xs-2 col-sm-2 text-left">  '+equipo+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+pj+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+gd+'</li> <li class="col-md-3 col-xs-3 col-sm-3 text-center"> '+pts+'</li><li class="rayaSepara col-md-12 col-xs-12 col-sm-12"></li>');
+                $('.posicionesEtapa2').append('<div class="col-100"><div class="row"><div class="col-auto"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" />  '+equipo+'</div> <div class="col-auto"> '+pj+'</div> <div class="col-auto"> '+gd+'</div> <div class="col-auto"> '+pts+'</div> </div></div>');
                 arrayPuntajesPJ[h1var] = parseInt(arrayPuntajesPJ[h1var]) + parseInt(pj);
                 arrayPuntajesGD[h1var] = parseInt(arrayPuntajesGD[h1var]) + parseInt(gd);
                 arrayPuntajesPTS[h1var] = parseInt(arrayPuntajesPTS[h1var]) + parseInt(pts);
                 
-                $('.posicionesAcumulada').append('<li class="col-md-3 col-xs-3 col-sm-3 text-right"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" /></li> <li class="col-md-2 col-xs-2 col-sm-2 text-left"> '+equipo+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+arrayPuntajesPJ[h1var]+'</li> <li class="col-md-2 col-xs-2 col-sm-2 text-center"> '+arrayPuntajesGD[h1var]+'</li> <li class="col-md-3 col-xs-3 col-sm-3 text-center"> '+arrayPuntajesPTS[h1var]+'</li><li class="rayaSepara col-md-12 col-xs-12 col-sm-12"></li>');
+                $('.posicionesAcumulada').append('<div class="col-100"><div class="row"><div class="col-auto"> <img src="'+rutaimagen+'/img/widget/'+equipo.toLowerCase()+'.png" />'+equipo+'</div> <div class="col-auto"> '+arrayPuntajesPJ[h1var]+'</div> <div class="col-auto"> '+arrayPuntajesGD[h1var]+'</div> <div class="col-auto"> '+arrayPuntajesPTS[h1var]+'</div> </div></div>');
                 //h1var++;
             }
 

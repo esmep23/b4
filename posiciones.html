@@ -50,50 +50,72 @@
             </div>  
         <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through toolbar-fixed">
-          <!-- Page, "data-page" contains page name -->
-          <div data-page="posiciones" class="page">
-            <!-- Scrollable page content -->
-            <div class="page-content">
 
-                    <div id="tabs" >
-                        <ul class="row">
-                          <li class="col-md-4 col-xs-4 col-sm-4 text-center"><a href="#tabs-1">ETAPA 1</a></li>
-                          <li class="col-md-4 col-xs-4 col-sm-4 text-center ui-tabs-active"><a href="#tabs-2">ETAPA 2</a></li>
-                          <li class="col-md-4 col-xs-4 col-sm-4 text-center"><a href="#acumulada">ACUMULADA</a></li>
-                        </ul>
-                        <div id="tabs-1">
-                            <ul class="tabla_posicionesEtapa1">
-                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
-                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
-                            </ul>
-                            <ul class="posicionesEtapa1"></ul>
-                        </div>
-                        <div id="tabs-2">
-                          
-                          <ul class="tabla_posicionesEtapa2">
-                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
-                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
-                            </ul>
-                            <ul class="posicionesEtapa2"></ul>
-                        </div>
-                        <div id="acumulada">
-                          <ul class="tabla_posicionesAcumulada">
-                              <li class="col-md-5 col-xs-5 col-sm-5 text-center"><span>EQUIPO</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>PJ</span></li>
-                              <li class="col-md-2 col-xs-2 col-sm-2 text-center"><span>GD</span></li>
-                              <li class="col-md-3 col-xs-3 col-sm-3 text-center"><span>PTS</span></li>
-                            </ul>
-                            <ul class="posicionesAcumulada"></ul>
-                        </div>
-                        
+          
+            <div data-page="posiciones" class="page with-subnavbar">
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <div class="center">Swipeable Tabs</div>
+                    <div class="subnavbar">
+                      <!-- Buttons row as tabs controller in Subnavbar-->
+                      <div class="buttons-row">
+                        <!-- Link to 1st tab, active -->
+                        <a href="#tab1" class="button active tab-link">ETAPA 1</a>
+                        <!-- Link to 2nd tab -->
+                        <a href="#tab2" class="button tab-link">ETAPA 2</a>
+                        <!-- Link to 3rd tab -->
+                        <a href="#tab3" class="button tab-link">ACUMULADA</a>
+                      </div>
                     </div>
+                  </div>
+                </div>
+                <!-- Tabs swipeable wrapper, required to switch tabs with swipes -->
+                <div class="tabs-swipeable-wrap">
+                  <!-- Tabs, tabs wrapper -->
+                  <div class="tabs">
+                    <!-- Tab 1, active by default -->
+                    <div id="tab1" class="page-content tab active">
+                      <div class="content-block">
+                        <div class="row tabla_posicionesEtapa1">
+                              <div class="col-auto"><strong><span>EQUIPO</span></strong></div>
+                              <div class="col-auto"><strong><span>PJ</span></strong></div>
+                              <div class="col-auto"><strong><span>GD</span></strong></div>
+                              <div class="col-auto"><strong><span>PTS</span></strong></div>
+                            </div>
+                            <div class="row posicionesEtapa1"></div>
+                      </div>
+                    </div>
+                    <!-- Tab 2 -->
+                    <div id="tab2" class="page-content tab">
+                      <div class="content-block">
+                        <div class="row tabla_posicionesEtapa2">
+                              <div class="col-auto"><strong><span>EQUIPO</span></strong></div>
+                              <div class="col-auto"><strong><span>PJ</span></strong></div>
+                              <div class="col-auto"><strong><span>GD</span></strong></div>
+                              <div class="col-auto"><strong><span>PTS</span></strong></div>
+                            </div>
+                            <div class="row posicionesEtapa2"></div>
+                      </div>
+                    </div>
+                    <!-- Tab 3 -->
+                    <div id="tab3" class="page-content tab">
+                      <div class="content-block">
+                        <div class="row tabla_posicionesAcumulada">
+                              <div class="col-auto"><strong><span>EQUIPO</span></strong></div>
+                              <div class="col-auto"><strong><span>PJ</span></strong></div>
+                              <div class="col-auto"><strong><span>GD</span></strong></div>
+                              <div class="col-auto"><strong><span>PTS</span></strong></div>
+                            </div>
+                            <div class="row posicionesAcumulada"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            </div>
-          </div>
+
+
+         
         </div>
         <!-- Bottom Toolbar-->
         <div class="toolbar">
